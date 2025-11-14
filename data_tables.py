@@ -3,9 +3,14 @@
 """
 Data tables for the D&D fantasy item generator.
 Feel free to expand these lists to flavor it for your own setting.
+
+These have been expanded heavily for maximum variety while staying
+roughly within a 5e-style fantasy tone.
 """
 
 # Rarity names (colors/emojis are handled in the main script)
+# NOTE: The main script has special styling for the first six rarities.
+# Any additional names will still work, but fall back to a generic style.
 RARITIES = [
     "Common",
     "Uncommon",
@@ -13,61 +18,184 @@ RARITIES = [
     "Very Rare",
     "Legendary",
     "Artifact",
+    # Extra rarities (fallback styling)
+    "Mythic",
+    "Relic",
+    "Cursed Relic",
+    "Blessed Relic",
+    "Heroic",
+    "Masterwork",
 ]
 
 ITEM_TYPES = [
+    # Core weapons
     "sword",
     "dagger",
     "greatsword",
-    "longbow",
-    "shortbow",
+    "longsword",
+    "shortsword",
+    "rapier",
+    "scimitar",
+    "spear",
+    "halberd",
+    "glaive",
+    "pike",
+    "trident",
     "warhammer",
-    "battleaxe",
-    "mace",
-    "staff",
-    "wand",
-    "orb",
-    "shield",
-    "breastplate",
-    "leather armor",
-    "cloak",
-    "ring",
-    "amulet",
-    "belt",
-    "boots",
-    "helm",
-    "gauntlets",
-    "tome",
-    "instrument",
-    "lantern",
-    # +5 extra types
     "maul",
+    "battleaxe",
+    "greataxe",
+    "handaxe",
+    "mace",
+    "morningstar",
+    "club",
+    "quarterstaff",
+    "whip",
     "flail",
     "chakram",
+    # Ranged
+    "longbow",
+    "shortbow",
     "crossbow",
+    "hand crossbow",
+    "heavy crossbow",
+    "sling",
+    "javelin",
+    "throwing knife",
+    # Implements / foci
+    "staff",
+    "wand",
+    "rod",
+    "orb",
+    "crystal focus",
+    "talisman",
+    "holy symbol",
+    "idol",
+    "reliquary",
+    # Armor and shields
+    "shield",
+    "buckler",
+    "tower shield",
+    "kite shield",
+    "breastplate",
+    "chain shirt",
+    "half plate",
+    "full plate",
+    "scale mail",
+    "leather armor",
+    "studded leather armor",
+    "robes",
+    "battle robe",
+    # Wearables / accessories
+    "cloak",
+    "mantle",
+    "cape",
+    "tabard",
+    "sash",
+    "belt",
+    "war belt",
+    "ring",
+    "signet ring",
+    "amulet",
+    "pendant",
+    "necklace",
+    "charm bracelet",
+    "circlet",
+    "crown",
+    "diadem",
+    "mask",
+    "helm",
+    "hood",
+    "visor",
+    "gauntlets",
+    "bracers",
+    "gloves",
+    "grieves",
+    "boots",
+    "sandals",
+    "greaves",
+    "pauldrons",
+    "vambraces",
+    # Books & knowledge
+    "tome",
     "spellbook",
+    "grimoire",
+    "scroll case",
+    "map case",
+    "codex",
+    # Tools & miscellany
+    "instrument",
+    "lute",
+    "harp",
+    "drum",
+    "pipes",
+    "horn",
+    "lantern",
+    "everburning lantern",
+    "quiver",
+    "bandolier",
+    "satchel",
+    "component pouch",
+    "alchemist kit",
+    "thieves' tools",
+    "lockbox",
 ]
 
 MATERIALS = [
+    # Metals & stone
     "iron",
     "steel",
+    "blackened steel",
     "obsidian",
     "mithral",
     "adamantine",
-    "dragonbone",
     "cold iron",
+    "silvered steel",
+    "electrum",
+    "bronze",
     "star metal",
-    "shadowglass",
-    "crystalline",
+    "sky-iron",
+    "dragonscale-steel",
     "runic stone",
-    "ghostwood",
-    "moonsteel",
-    # +5 extra materials
-    "bloodstone",
+    "basalt",
+    "moonstone",
+    "jade",
+    "amber",
+    "onyx",
+    "quartz",
+    "crystalline",
+    "soulstone",
     "void crystal",
+    "bloodstone",
+    # Woods & organics
+    "oaken",
+    "yewwood",
+    "ironwood",
+    "ghostwood",
+    "shadowwood",
+    "elderwood",
+    "wyrmwood",
+    "bloodwood",
+    "ashwood",
+    "driftwood",
+    "fungal chitin",
+    "dragonbone",
+    "wyrmscale",
+    "chitin-plated",
+    # Exotic / magical
     "sunforged bronze",
     "eldritch ivory",
-    "wyrmscale",
+    "stormglass",
+    "shadowglass",
+    "sunglass",
+    "aetherglass",
+    "runebound crystal",
+    "starlight alloy",
+    "feywrought silver",
+    "void-touched steel",
+    "emberstone",
+    "frostglass",
+    "moonsteel",
 ]
 
 QUALITIES = [
@@ -84,12 +212,31 @@ QUALITIES = [
     "sunglow",
     "frostbitten",
     "ember-forged",
-    # +5 extra qualities
     "saintly",
     "cursed",
     "prismatic",
     "mirrorbright",
     "rootbound",
+    # Extra qualities
+    "bloodstained",
+    "shadowed",
+    "ethereal",
+    "humming",
+    "silent",
+    "ghostly",
+    "silver-inlaid",
+    "gold-inlaid",
+    "rune-etched",
+    "weatherworn",
+    "battle-scarred",
+    "immaculate",
+    "moon-kissed",
+    "starforged",
+    "storm-tempered",
+    "ember-scorched",
+    "moss-covered",
+    "bone-carved",
+    "glass-smooth",
 ]
 
 ENCHANTMENTS = [
@@ -103,12 +250,24 @@ ENCHANTMENTS = [
     "it crackles with latent storm energy ⚡",
     "it radiates a soothing warmth",
     "it leaves faint spectral afterimages when swung",
-    # +5 extra enchantments
     "tiny motes of starlight drift from it when drawn ✨",
     "a faint chorus of distant voices echoes inside it",
     "it briefly reveals invisible runes on nearby surfaces",
     "it leaves behind the scent of rain on stone",
     "its reflection sometimes moves a heartbeat out of sync",
+    # Extra enchantments
+    "ghostly script crawls across it when blood is spilled nearby",
+    "it sheds harmless sparks whenever a spell is cast within reach",
+    "it gently vibrates in the presence of fiends or undead",
+    "it cools noticeably near portals or planar rifts",
+    "illusory vines coil around it when rested on natural ground",
+    "faint clockwork ticking is heard with every motion",
+    "in moonlight, it appears as if forged from liquid silver",
+    "it occasionally shows brief visions of distant places",
+    "it tastes the air with tiny sparks when lies are spoken",
+    "it leaves a trail of drifting petals that fade in seconds",
+    "its edge appears slightly out of phase with reality",
+    "it sheds a soft glow that dims when danger has passed",
 ]
 
 ORIGINS = [
@@ -122,12 +281,25 @@ ORIGINS = [
     "found in the shattered vaults beneath a ruined city",
     "gifted by the fey courts at a terrible price",
     "salvaged from the armor of a fallen celestial",
-    # +5 extra origins
     "pieced together from relics scattered across a dozen battlefields",
     "sung into being by a circle of druids at solstice",
     "excavated from a meteorite that never cooled",
     "traded for a single whispered secret in a midnight market",
     "recovered from a time-locked vault that should never have opened",
+    # Extra origins
+    "unearthed beneath the roots of a world-tree",
+    "won in a game of chance against a masked stranger",
+    "dredged from the depths of a bottomless lake",
+    "rescued from a cursed tomb sealed with seven locks",
+    "discovered in the reliquary of a forgotten saint",
+    "fashioned in imitation of a legendary artifact now lost",
+    "found clasped in the hand of a long-dead king on a crystal throne",
+    "assembled from shards left in the wake of a planar collision",
+    "claimed from a battlefield where no bodies remained",
+    "taken from the treasury of a toppled tyrant",
+    "unearthed in ruins that appear only once each century",
+    "bargained for in a fey market that moves between worlds",
+    "sealed within volcanic glass until recently broken free",
 ]
 
 QUIRKS = [
@@ -141,12 +313,24 @@ QUIRKS = [
     "causes nearby candles to burn with colored flames 🕯️",
     "slowly repairs itself from any damage",
     "seems slightly heavier in the presence of dragons 🐉",
-    # +5 extra quirks
     "occasionally giggles softly when no one is looking",
     "casts a shadow that sometimes points in the wrong direction",
     "rings like crystal when lies are spoken nearby",
     "attracts small harmless animals that refuse to leave",
     "its reflection is always a little older than reality",
+    # Extra quirks
+    "makes quiet page-turning sounds when nothing is being read",
+    "sheds harmless sparks when someone nearby is angry",
+    "softly echoes the last spoken word around it",
+    "leaves temporary frost patterns on metal surfaces",
+    "drips illusory ink that vanishes before hitting the ground",
+    "causes nearby doors to creak open just a little wider",
+    "occasionally swaps its own minor decorative details",
+    "emits distant battlefield sounds during thunderstorms",
+    "seems inexplicably clean regardless of use",
+    "causes the taste of food to improve slightly when nearby",
+    "occasionally hums in harmony with distant music",
+    "feels warm to the touch when someone nearby is being honest",
 ]
 
 ATTUNEMENT_REQUIREMENTS = [
@@ -155,12 +339,21 @@ ATTUNEMENT_REQUIREMENTS = [
     "Attunement required by a creature of non‑lawful alignment",
     "Attunement required by a proficient martial weapon user",
     "No attunement required",
-    # +5 extra requirements
     "Attunement required by a creature who has slain a dragon",
     "Attunement required by a creature proficient with heavy armor",
     "Attunement required by a bard, cleric, or paladin",
     "Attunement required by a creature who has made a pact with a patron",
     "Attunement required by a creature bearing a notable scar",
+    # Extra requirements
+    "Attunement required by a creature who has died and returned to life",
+    "Attunement required by a creature with a bond to a specific deity",
+    "Attunement required by a creature who has kept a sworn oath for a year",
+    "Attunement required by a creature who knows at least one secret language",
+    "Attunement required by a creature that has willingly spared a defeated foe",
+    "Attunement required by a creature of chaotic alignment",
+    "Attunement required by a creature with proficiency in Arcana",
+    "Attunement required by a creature with a dragon as ally or patron",
+    "Attunement required by a creature who has touched raw planar energy",
 ]
 
 MECHANICAL_EFFECTS = [
@@ -175,10 +368,99 @@ MECHANICAL_EFFECTS = [
     "you can speak, read, and write Draconic",
     "once per day, you can reroll a failed attack roll",
     "your walking speed increases by 10 ft.",
-    # +5 extra effects
     "you gain darkvision out to 60 ft.",
     "once per long rest, you can turn invisible for 1 minute",
     "you have advantage on Initiative rolls",
     "you can breathe underwater",
     "your spell save DC for one class increases by 1",
+    # Extra effects
+    "you gain a +1 bonus to saving throws against spells",
+    "you have resistance to psychic damage",
+    "you can cast Shield once per short rest",
+    "you can cast Feather Fall at will, targeting only yourself",
+    "you ignore difficult terrain caused by nonmagical plants",
+    "you can understand (but not speak) all spoken languages",
+    "you can communicate simple ideas telepathically within 30 ft.",
+    "once per long rest, you can maximize the damage of one attack",
+    "you leave no tracks and cannot be tracked by nonmagical means",
+    "you can cast Speak with Animals at will",
+    "your carrying capacity is doubled",
+    "you have advantage on checks to resist being frightened",
+    "you can cast Lesser Restoration once per long rest",
 ]
+
+THEMED_MECHANICAL_EFFECTS = {
+    # Fire / heat / sun
+    "fire": [
+        "you have resistance to fire damage",
+        "once per short rest, you can wreathe yourself in harmless flames, shedding bright light in a 20-foot radius for 1 minute",
+        "once per long rest, you can cause a weapon attack to deal an extra 2d6 fire damage",
+        "nonmagical fire within 10 ft. of you can be extinguished or ignited as an action",
+        "you have advantage on saving throws against effects that would extinguish nonmagical flames you create",
+    ],
+
+    # Frost / cold / winter
+    "cold": [
+        "you have resistance to cold damage",
+        "you leave no footprints in snow and ignore difficult terrain caused by ice or snow",
+        "once per long rest, you can surround yourself with freezing air; creatures of your choice within 5 ft. take 2d6 cold damage (Dex save for half)",
+        "you can chill or cool nonmagical liquids you touch as an action",
+        "you have advantage on saving throws against extreme cold environments",
+    ],
+
+    # Shadows / night / void
+    "shadow": [
+        "you have advantage on Dexterity (Stealth) checks made in dim light or darkness",
+        "creatures have disadvantage on Wisdom (Perception) checks to see you in dim light",
+        "once per short rest, you can step through shadows to teleport up to 15 ft. to an unoccupied space you can see that is also in dim light or darkness",
+        "you can extinguish a small nonmagical light source within 30 ft. as a bonus action",
+    ],
+
+    # Storm / lightning / wind
+    "storm": [
+        "you have resistance to lightning damage",
+        "once per short rest, when you hit with a weapon attack, you can deal an extra 1d8 lightning damage",
+        "you have advantage on Strength (Athletics) checks made to resist being pushed or knocked prone by wind",
+        "you can cause a harmless breeze to blow around you in a 10-foot radius",
+    ],
+
+    # Fey / nature / beasts
+    "fey": [
+        "you can cast Speak with Animals once per long rest without expending a spell slot",
+        "you leave no tracks and cannot be tracked by nonmagical means while in forests or natural terrain",
+        "you have advantage on Charisma (Persuasion) checks made to influence beasts and fey creatures",
+        "once per long rest, you can cast Entangle centered on a point you can see within 30 ft.",
+    ],
+
+    # Radiant / holy / celestial
+    "radiant": [
+        "you have resistance to radiant damage",
+        "you can cast Light at will, originating from the item",
+        "once per long rest, when you or an ally within 10 ft. fails a saving throw, you can add a +1d4 bonus to that roll",
+        "you have advantage on saving throws against being frightened by fiends or undead",
+    ],
+
+    # Necrotic / grave / death
+    "necrotic": [
+        "you have resistance to necrotic damage",
+        "you have advantage on saving throws against effects that would inflict exhaustion",
+        "once per long rest, when you reduce a creature to 0 hit points, you gain temporary hit points equal to your proficiency bonus",
+        "you can stabilize a dying creature by touching it as an action, without a check or kit",
+    ],
+
+    # Arcane / runes / spellcraft
+    "arcane": [
+        "you gain a +1 bonus to spell attack rolls",
+        "you have advantage on Intelligence (Arcana) checks regarding spells and magic items",
+        "you can cast Detect Magic once per short rest without expending a spell slot",
+        "once per long rest, you can ignore verbal and somatic components of a 1st-level spell you cast",
+    ],
+
+    # Generic fallback theme if nothing else matches explicitly
+    "generic": [
+        "your weapon attacks count as magical for the purpose of overcoming resistance and immunity to nonmagical attacks",
+        "you gain a +1 bonus to saving throws against spells",
+        "you have advantage on Constitution saving throws to maintain concentration on a spell",
+        "once per long rest, you can reroll one failed ability check; you must use the new roll",
+    ],
+}

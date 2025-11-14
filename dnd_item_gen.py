@@ -18,6 +18,7 @@ from data_tables import (
     QUIRKS,
     ATTUNEMENT_REQUIREMENTS,
     MECHANICAL_EFFECTS,
+    THEMED_MECHANICAL_EFFECTS,
 )
 
 # ==========================
@@ -157,6 +158,45 @@ def build_item_name(rarity_name, material, quality, item_type):
         return f"{rarity_name} {quality} {material} {item_type}"
 
 
+def infer_theme(material, quality, enchantment):
+    """Infer a loose 'theme' (fire, cold, shadow, etc.) from the item's flavor text."""
+    text = " ".join(
+        [
+            material or "",
+            quality or "",
+            enchantment or "",
+        ]
+    ).lower()
+
+    if any(w in text for w in ("flame", "fire", "ember", "ash", "inferno", "lava", "scorch", "burn", "sun")):
+        return "fire"
+    if any(w in text for w in ("frost", "ice", "icy", "cold", "winter", "snow")):
+        return "cold"
+    if any(w in text for w in ("shadow", "night", "dark", "gloom", "umbral", "void", "shade", "ghost", "spectral")):
+        return "shadow"
+    if any(w in text for w in ("storm", "lightning", "thunder", "tempest", "squall")):
+        return "storm"
+    if any(w in text for w in ("vine", "root", "moss", "leaf", "petal", "forest", "druid", "beast", "animal", "nature", "wood", "fey")):
+        return "fey"
+    if any(w in text for w in ("holy", "divine", "radiant", "saint", "angel", "celestial", "blessed", "hallowed")):
+        return "radiant"
+    if any(w in text for w in ("blood", "bone", "grave", "death", "corpse", "skull", "necrotic", "wither")):
+        return "necrotic"
+    if any(w in text for w in ("arcane", "spell", "wizard", "mage", "rune", "sigil", "glyph", "scroll", "tome")):
+        return "arcane"
+    return "generic"
+
+
+def pick_mechanical_effect(material, quality, enchantment):
+    """Pick a mechanical effect, preferring theme-matched entries if available."""
+    theme = infer_theme(material, quality, enchantment)
+    themed_pool = THEMED_MECHANICAL_EFFECTS.get(theme, [])
+    if themed_pool:
+        return random.choice(themed_pool)
+    # Fallback to the generic pool if no themed effects are available
+    return random.choice(MECHANICAL_EFFECTS)
+
+
 def generate_item():
     rarity_name = random.choice(RARITIES)
     rarity_style = RARITY_STYLES.get(
@@ -172,7 +212,7 @@ def generate_item():
     origin = random.choice(ORIGINS)
     quirk = random.choice(QUIRKS)
     attune = random.choice(ATTUNEMENT_REQUIREMENTS)
-    effect = random.choice(MECHANICAL_EFFECTS)
+    effect = pick_mechanical_effect(material, quality, enchantment)
 
     name = build_item_name(rarity_name, material, quality, item_type)
 
